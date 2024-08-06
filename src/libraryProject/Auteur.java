@@ -6,7 +6,7 @@ public class Auteur {
 	private String nom , prenom;
 	private List<Livre> listeLivres ;
 
-	public void Auteur(String nom , String prenom , List<Livre> listeLivres ) {
+	public Auteur(String nom , String prenom ) {
 		this.nom = nom ;
 		this.prenom = prenom;
 		this.listeLivres= new ArrayList<>();
@@ -16,4 +16,12 @@ public class Auteur {
 	public void ajouterLivre(Livre livre) {
         listeLivres.add(livre);
     }
+	
+
+
+    @Override
+    public String toString() {
+        return prenom + " " + nom;
+    }
+    
 }

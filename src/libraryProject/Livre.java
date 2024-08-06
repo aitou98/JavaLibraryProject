@@ -7,25 +7,35 @@ public class Livre {
 	private boolean disponible;
 	
 	
-	public void Book(String titre , Auteur auteur , String ISBN  ) {
-		
-		this.titre = titre ; 
-		this.auteur = auteur;
-		this.ISBN = ISBN; 
-		this.disponible = true;		
-	}
+	public Livre(String titre, Auteur auteur, String ISBN) {
+        this.titre = titre;
+        this.auteur = auteur;
+        this.ISBN = ISBN;
+        this.disponible = true;
+        auteur.ajouterLivre(this);
+    }
 	
-	public void emprunter() {
-		
-		this.disponible = false;
-		
-	}
+	 public boolean estDisponible() {
+	        return disponible;
+	    }
 	
-	
-	public void rendre() {
-		
-		this.disponible = true;
-	}
+
+	    public void emprunter() {
+	        if (disponible) {
+	            disponible = false;
+	        } else {
+	            System.out.println("Le livre " + titre + " n'est pas disponible.");
+	        }
+	    }
+
+	    public void rendre() {
+	        disponible = true;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return titre + " par " + auteur;
+	    }
 	
 	
 	
